@@ -1,0 +1,109 @@
+// 变量
+@g_bgcolor:#f1f1f1;
+@g_Width:1200px;
+@card_bgColor:#fff;
+
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	background: @g_bgcolor;
+}
+.container{
+	width: 100%;
+	background: @card_bgColor;
+	margin:0 auto;
+}
+
+// 混合 并非直接使用，而是等待别人调用的
+.boxsize(@width:100px,@height: 50px,@background: #fff){
+	width: @width;
+	height:@height;
+	background: @background;
+}
+
+.box{
+	.boxsize();
+	margin:10px;
+}
+
+.box1{
+	.boxsize(300px,200px,#ff0000);
+}
+
+// 嵌套
+.header{
+	@headerHeight:50px;
+	width: @g_Width;
+	margin:0 auto;
+	height: @headerHeight;
+	line-height: @headerHeight;
+	ul{
+		clear:both;
+		overflow: hidden;
+		li{
+			list-style: none;
+			float: left;
+			margin:0 20px;
+			a{
+				text-decoration: none;
+				font-size: 15px;
+				color: #222;
+				&:hover{
+					color: #f0f;
+				}
+			}
+		}
+	}
+}
+
+// 计算:加减乘除
+@hello_width:100px;
+@hello_height:100px;
+@hello_color:#222;
+.hello{
+	width: @hello_width  - 50;
+	height: @hello_height / 2;
+	background: @hello_color / 2;
+}
+
+// 375 * 456  rem:使用场景是固定布局    
+.textrem{
+	width: 375 / 50rem;
+	height: 456 / 50rem;
+	background: #ff0000;
+}
+
+// 函数
+.fn{
+	width: 100px;
+	height: ceil(99.8px);
+	font-size: 20px;
+	background: green;
+}
+
+.mixin(@value) when (@value > 100){
+	width: 500px;
+}
+.mixin(@value) when (@value <= 100){
+	width: 50px;
+}
+
+.boxs{
+	height: 100px;
+	.mixin(60);
+	background: blue;
+}
+
+.box1{
+	width: 100px;
+	height: 100px;
+	background: red;
+	border-radius: 10px;
+}
+
+.box2{
+	&:extend(.box1);
+	font-size: 20px;
+}

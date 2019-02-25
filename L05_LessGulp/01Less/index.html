@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="lessstyle.css">
+	<script type="text/javascript">
+		 (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        if(clientWidth>=750){
+                            docEl.style.fontSize = '100px';
+                        }else{
+                            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                        }
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+	</script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="header">
+			<ul>
+				<li><a href="#">首页</a></li>
+				<li><a href="#">Java</a></li>
+				<li><a href="#">Web</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="content">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box1"></div>
+	</div>
+
+	<div class="hello">
+		
+	</div>
+	<div class="textrem">
+		
+	</div>
+	<div class="fn">
+		我是函数
+	</div>
+	<div class="boxs">
+		
+	</div>
+
+
+</body>
+</html>

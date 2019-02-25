@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script src="dist/jquery.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+
+		var Blog = React.createClass({
+			
+			getInitialState:function(){
+				return{
+					datas:{
+						banner:[]
+					}
+				}
+			},
+
+			componentDidMount:function(){
+				$.ajax({
+					type:"get",
+					url:this.props.url,
+					success:function(data){
+						this.setState({
+							datas:data
+						})
+					}.bind(this)
+				})
+			},
+
+			render:function(){
+
+				var datas = this.state.datas;
+				return(
+					<div>
+						{
+							datas.banner.map(function(ele,index){
+								return(
+									<div key={index}>
+										<p>{ ele.title }</p>
+										<p>{ ele.content }</p>
+										<img src={ele.img} alt=""/>
+									</div>
+								)
+							})
+						}
+					</div>
+				)
+			}
+		})
+
+
+		
+		ReactDOM.render(<Blog url="http://www.wwtliu.com/sxtstu/blueberrypai/getIndexBanner.php"/>,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

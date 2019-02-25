@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+		/**
+		 * 了解jsx语法
+		 *		遇到{}按照js语法解析
+		 *		遇到<>按照xml语法解析
+		 */
+		
+		var names = ["iwen","ime","ice"];
+		ReactDOM.render(
+			<ul>
+				{
+					names.map(function(element,index){
+						return <li>{ element }</li>  
+					})
+				}
+			</ul>,
+			document.getElementById("root")
+		)
+		
+	</script>
+
+</body>
+</html>

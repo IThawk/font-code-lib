@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+		
+		var names = [
+			{
+				name:"iwen",
+				age:20
+			},
+			{
+				name:"ime",
+				age:30
+			},
+			{
+				name:"ice",
+				age:40
+			}
+		];
+		ReactDOM.render(
+			<ul>
+				{
+					names.map(function(element,index){
+						return <li key={index}>{ element.name }<span>{ element.age }</span></li>  
+					})
+				}
+			</ul>,
+			document.getElementById("root")
+		)
+		// 为每一个遍历元素添加唯一的key作为标志，通过key可以找到当前元素
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-3.2.1.js"></script>
+</head>
+<body>
+
+	<ul class="root">
+		
+	</ul>
+
+	<script type="text/javascript">
+		
+		$.ajax({
+			url:"http://localhost:3000/news",
+			type:"get",
+			success:function(data){
+				setAdapter(data);
+			}
+		})
+
+		function setAdapter(data){
+			$(data).each(function(index,element){
+				$(".root").append("<li><a href="+ element.url +">"+ element.title +"</a></li>")
+			})
+			
+		}
+
+
+
+	</script>
+	
+</body>
+</html>

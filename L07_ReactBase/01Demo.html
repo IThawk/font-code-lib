@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+</head>
+<body>
+	<!-- 承载显示内容的根容器 -->
+	<div id="root"></div>
+
+	<!-- babel可以帮我们解析jsx语法 -->
+	<script type="text/babel">
+		
+		<!-- 
+			参数1：页面要显示的内容
+			参数2：要将显示的内容加载到容器中
+		 -->
+		ReactDOM.render(<h1>Hello React</h1>,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

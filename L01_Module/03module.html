@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		
+		/**
+		 * 放宽大模式
+		 * 
+		 */
+		
+		var module1 = (function(){
+
+			var getName = function(){
+				return "iwen"
+			}
+
+			return {
+				getName:getName
+			}
+
+		})();
+
+		var module1 = null;
+
+		var module2 = (function(module1){
+			
+			module1.m1 = "hello";
+			return module1;
+
+		})(module1 || {});
+		
+		console.log(module2.m1);
+
+	</script>
+	
+</body>
+</html>

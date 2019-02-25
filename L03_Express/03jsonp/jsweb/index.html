@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<button id="btn">获取数据</button>
+
+	<script type="text/javascript">
+		
+		var btn = document.getElementById("btn");
+		var oScript = null;
+		btn.onclick = function(){
+			oScript = document.createElement("script");
+			oScript.src ="http://localhost:3000/jsonp?callback=getInfo";
+			document.body.appendChild(oScript);
+		}
+
+		function getInfo(data){
+			console.log(data);
+			document.body.removeChild(oScript);
+		}
+
+
+	</script>
+
+	
+</body>
+</html>

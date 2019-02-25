@@ -1,0 +1,16 @@
+import React from "react"
+import Nav from "./pages/nav"
+import "./assets/css/pc_index.css"
+
+export default class PCIndex extends React.Component{
+  render(){
+    return(
+      <div className="container">
+        <Nav />
+        <div className="content">
+          { this.props.children }
+        </div>
+      </div>
+    )
+  }
+}

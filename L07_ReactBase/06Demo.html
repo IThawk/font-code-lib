@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+		
+		/**
+		 * 组件：
+		 * 	1.组件的复用
+		 *  2.组件的嵌套
+		 */
+		
+		var  Text = React.createClass({
+
+			render:function(){
+				return(
+					<div>
+						<p>我是文本</p>
+					</div>
+				)
+			}
+
+		})
+
+
+		var Img = React.createClass({
+			render:function(){
+				return(
+					<div>
+						<img src="http://wwtliu.com/sxtstu/blueberrypai/indexImg/tupian_05.png" alt="" />
+					</div>
+				)
+			}
+		})
+
+		var TextImg = React.createClass({
+			render:function(){
+				return(
+					<div>
+						<Text  />
+						<Img />
+					</div>
+				)
+			}
+		})
+
+		ReactDOM.render(<div><TextImg /><TextImg /><TextImg /></div>,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

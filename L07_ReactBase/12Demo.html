@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+		/**
+		 * props与state的区别
+		 *		props:组件与组件之间的交互，是对外的
+		 *		state:组件内部状态的改变，他是对内的
+		 *
+		 * props不要尝试着修改他的内容
+		 * state:随意修改
+		 * 
+		 */
+
+		//
+		var Hello = React.createClass({
+			//
+			render:function(){
+
+				return(
+					//
+					<div>
+						{ /* 哈哈 */ }
+						{ this.props.title }
+
+					</div>
+				)
+			}
+		})
+
+		ReactDOM.render(<Hello title="hellos" />,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

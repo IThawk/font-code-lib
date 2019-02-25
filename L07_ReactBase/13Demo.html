@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+		/**
+		 * 组件的生命周期
+		 * 	生命周期函数：
+		 * 		ComponentWillMount：在组件渲染之前执行
+		 * 		ComponentDidMount:组件渲染之后执行
+		 * 		componentWillUpdate:组件更新之前执行
+		 * 		componentDidUpdate:组件更新之后执行
+		 * 		componentWillUnMount:组件卸载之前触发
+		 *
+		 *
+		 * 		shouldComponentUpdate:是否渲染视图
+		 * 
+		 */
+		
+		var HelloComponent = React.createClass({
+
+			getInitialState:function(){
+				return{
+					flag:true
+				}
+			},
+
+			componentWillMount:function(){
+				console.log("组件渲染之前执行");
+			},
+
+			componentDidMount:function(){
+				console.log("组件渲之后执行")
+			},
+
+			shouldComponentUpdate:function(){
+				console.log("不允许改变")
+				return true;
+			},
+
+			componentWillUpdate:function(){
+				console.log("组件更新之前")
+			},
+
+			componentDidUpdate:function(){
+				console.log("组件更新之后");
+			},
+
+			componentWillUnMount:function(){
+				console.log("组件卸载之前触发")
+			},
+
+			componentWillReceiveProps:function(){
+				console.log("props改变触发")
+			},
+
+			handlerClick:function(){
+				this.setState({
+					flag:!this.state.flag
+				})
+			},
+
+			render:function(){
+				var value = this.state.flag ? '真的' : '假的';
+				return(
+					<div>
+						<p>{ value }</p>
+						<button onClick={this.handlerClick}>按钮</button>
+					</div>
+				)
+			}
+		})
+
+		ReactDOM.render(<HelloComponent />,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

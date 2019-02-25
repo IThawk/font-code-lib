@@ -1,0 +1,45 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  color: #555
+}
+
+body{
+  background: #f1f1f1;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+.active{
+  color: #ff00ff !important;
+}
+
+.mobile-nav{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right:0;
+  background: #fff;
+}
+
+.mobile-nav ul{
+  display: flex;
+}
+
+.mobile-nav ul li{
+  flex: 1;
+  list-style: none;
+  text-align: center;
+}
+
+.mobile-nav ul li i{
+  display: block;
+  font-size: 25px;
+}

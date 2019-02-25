@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+	<style type="text/css">
+		
+		.myimg{
+			width: 150px;
+			height: 150px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+
+		/**
+		 * 定义数据
+		 */
+		
+		var newsData = [
+			{
+				title:'百度新闻1',
+				desc:"百度新闻介绍1",
+				url:"http://wwtliu.com/sxtstu/blueberrypai/images/item_03.png"
+			},
+			{
+				title:'百度新闻2',
+				desc:"百度新闻介绍2",
+				url:"http://wwtliu.com/sxtstu/blueberrypai/images/item_03.png"
+			},
+			{
+				title:'百度新闻3',
+				desc:"百度新闻介绍3",
+				url:"http://wwtliu.com/sxtstu/blueberrypai/images/item_03.png"
+			},
+			{
+				title:'百度新闻4',
+				desc:"百度新闻介绍4",
+				url:"http://wwtliu.com/sxtstu/blueberrypai/images/item_03.png"
+			}
+		];
+
+
+		var newsData1 = [
+			{
+				title:'网易新闻1',
+				desc:"网易新闻介绍1",
+				url:"http://wwtliu.com/sxtstu/blueberrypai/images/item_03.png"
+			},
+			{
+				title:'网易新闻2',
+				desc:"网易新闻介绍2",
+				url:"http://wwtliu.com/sxtstu/blueberrypai/images/item_03.png"
+			},
+			{
+				title:'易新闻3',
+				desc:"网易新闻介绍3",
+				url:"http://wwtliu.com/sxtstu/blueberrypai/images/item_03.png"
+			},
+			{
+				title:'网易新闻4',
+				desc:"网易新闻介绍4",
+				url:"http://wwtliu.com/sxtstu/blueberrypai/images/item_03.png"
+			}
+		];
+
+
+		var Txt = React.createClass({
+
+
+			getInitialState:function(){
+				return{
+					descFlag:false
+				}
+			},
+
+			showHideDescHandler:function(event){
+				this.setState({
+					descFlag: !this.state.descFlag
+				})
+			},
+
+			render:function(){
+				var hideDesc = {
+					display:"none"
+				}
+				var showDesc = {
+					display:"block"
+				}
+
+				var values = this.state.descFlag ? showDesc : hideDesc;
+
+				return(
+					<div className="txt">
+						<p>{ this.props.title }</p>
+						<p style={values}>{ this.props.desc }</p>
+						<button onClick={this.showHideDescHandler}>显示与隐藏描述</button>
+					</div>
+				)
+			}
+		})
+
+
+		var Img = React.createClass({
+			render:function(){
+				return(
+					<div>
+						<img className="myimg" src={this.props.url}  />
+					</div>
+				)
+			}
+		})
+
+
+		// 最终的呈现状态
+		var News = React.createClass({
+
+			getInitialState:function(){
+				// 1：网易   2：百度
+				return{
+					newsType:2
+				}
+			},
+
+			baiduHandler:function(){
+				this.setState({
+					newsType:2
+				})
+			},
+
+			wangyiHandler:function(){
+				this.setState({
+					newsType:1			
+				})
+			},
+
+			render:function(){
+
+				var datas = this.state.newsType === 2 ? newsData : newsData1
+					
+				return(
+					<div>
+						
+						<button onClick={this.baiduHandler}>看百度新闻</button>
+						<button onClick={this.wangyiHandler}>看网易新闻</button>
+
+						{	
+							datas.map(function(element,index){
+								return(
+									<div key={index}>
+										<Txt title={element.title} desc={ element.desc }/>
+										<Img url={element.url} />
+									</div>
+								)
+							})
+						}
+					</div>
+				)
+			}
+		})
+
+
+		ReactDOM.render(<News />,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+import React from "react"
+
+export default class PeopleCenter extends React.Component{
+  render(){
+    return(
+      <div>个人中心</div>
+    )
+  }
+}

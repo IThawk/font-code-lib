@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+		
+		var h1Arr = [<h1>我是第一个</h1>,<h1>我是第二个</h1>,<h1>我是第三个</h1>,<h1>我是第四个</h1>];
+		
+		ReactDOM.render(<div>{ h1Arr }</div>,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

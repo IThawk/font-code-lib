@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id='container'></div>
+	
+	<script type="text/javascript">
+
+		/*
+			1.基本的模块
+			2.问题
+				优点：挂载到对象中，避免了命名空间的污染
+				缺点：可以任意修改
+		*/
+		
+		// var user = "zhangsan";
+		// var ModuleObj = {
+		// 	name:"iwen",
+		// 	age:20
+		// }
+		// console.log(ModuleObj.name);
+		// console.log(window.user);
+
+		// ModuleObj.name = 'ime';
+		// console.log(ModuleObj.name);
+
+		
+		// var user = (function(){
+		// 	// 外部不可见
+		// 	var name = "iwen";
+		// 	var age = 20;
+		// 	function getName(){
+		// 		return name;
+		// 	}
+
+		// 	return{
+		// 		getName:getName,
+		// 		age:age
+		// 	}
+
+		// })();
+
+		// console.log(user.getName());
+		// user.age = 30;
+		// console.log(user.age);
+
+		
+		/*
+			放大模式
+		*/		
+
+		var module1 = (function(){
+			
+			var name = "iwen";
+			function getName(){
+				if(name == "iwen"){
+					return name;
+				}else{
+					return "一边去";
+				}
+				
+			}
+
+			return {
+				getName:getName
+			}
+		
+		})();
+
+
+		var module2 = (function(module1){
+			
+			var age = 18;
+			function getAge(){
+				return age;
+			}
+
+			var hello = function(){
+				var container = document.getElementById("container");
+				return container;
+			}
+
+			return {
+				getName2:module1.getName,
+				getAge:getAge,
+				hello:hello
+			}
+
+		})(module1);
+
+		console.log(module2.getName2());
+		console.log(module2.getAge());
+		console.log(module2.hello());
+
+		var url = "http://wwtliu.com/blog";
+
+	</script>
+
+</body>
+</html>

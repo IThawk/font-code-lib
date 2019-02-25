@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+		
+		/**
+		 * 私有属性与公有属性
+		 */
+		
+		var module = (function(){
+			
+			// 私有属性
+			var name = "iwen";
+			// 公有属性
+			var age = 20;
+			// 公有方法
+			function getName(){
+				return name;
+			}
+
+			// 私有方法
+			function hello(){
+				return 'hello'
+			}
+
+			return{
+				getName:getName,
+				age:age
+			}
+
+		})();
+
+		console.log(module.name); // undefined
+		console.log(module.age); // 20
+		console.log(module.getName()); // iwen
+		console.log(module.hello()); // module.hello is not a function
+
+
+	</script>
+	
+</body>
+</html>

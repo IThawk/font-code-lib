@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+	<style type="text/css">
+		
+		.box{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+
+		/**
+		 * 事件添加：
+		 * 事件类型：
+		 * 	click、mouseover 
+		 * 
+		 */
+
+		var LearnEvent = React.createClass({
+
+			clickHandler:function(event){
+				console.log(event)
+			},
+
+			mouseOverHanlder:function(event){
+				console.log("鼠标滑过");
+			},
+
+			render:function(){
+				return(
+					<div>
+						<button onClick={ this.clickHandler }>按钮</button>
+						<div onMouseOver={ this.mouseOverHanlder } className="box"></div>
+					</div>
+				)
+			}
+		})
+
+		
+		ReactDOM.render(<LearnEvent />,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

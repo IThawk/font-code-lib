@@ -1,0 +1,3 @@
+define(["swiper"], function(swiper) {
+
+})

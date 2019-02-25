@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+	<style type="text/css">
+		
+		.txt{
+			color: red;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+		
+		/**
+		 * 样式相关
+		 * 	 1.class是关键字，所以不能直接使用，使用className代替class
+		 * 	 2.内联样式要存续jsx语法
+		 * 
+		 */
+		
+		var FreeStyle = React.createClass({
+			render:function(){
+				var styleObj = { 
+					color:"green",
+					fontSize:"30px" 
+				}
+				return(
+					<div>
+						<p className="txt">我是样式</p>
+						<p style={styleObj}>我是自己的样式</p>
+					</div>
+				)
+			}
+		})
+
+
+		ReactDOM.render(<FreeStyle />,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

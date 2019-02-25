@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+	<style type="text/css">
+		
+		.news{
+			border: 5px solid red;
+			margin:10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+		/**
+		 * 组件：props
+		 * 	 组件与组件之间进行传递数据
+		 * 
+		 */
+		
+		var NewsChild = React.createClass({
+			render:function(){
+				return(
+					<div>
+						<img style={{ width:'100px',height:'150px' }} src={this.props.imgUrl} alt=""/>
+					</div>
+				)
+			}
+		})
+		
+		var News = React.createClass({
+			render:function(){
+				return(
+					<div className="news">
+						<a href="http://www.baidu.com">
+							<h3>{ this.props.newsData.title }</h3>
+							<p>{ this.props.newsData.desc }</p>
+							<NewsChild  imgUrl={this.props.newsData.url}/>
+						</a>
+					</div>
+				)
+			}
+		})
+	
+		var newsDataAll = [
+			{
+				title:"百度新闻",
+				desc:"我是百度新闻的描述",
+				url:"http://www.wwtliu.com/sxtstu/blueberrypai/indexImg/banner1.jpg"
+			},
+			{
+				title:"网易新闻",
+				desc:"我是网易新闻的描述",
+				url:"http://www.wwtliu.com/sxtstu/blueberrypai/indexImg/banner2.jpg"
+			},
+			{
+				title:"搜狐新闻",
+				desc:"我是搜狐新闻的描述",
+				url:"http://www.wwtliu.com/sxtstu/blueberrypai/indexImg/banner3.jpg"
+			}
+		]
+		
+
+		ReactDOM.render(
+			<div>
+				{
+					newsDataAll.map(function(element,index){
+						return <News newsData={element} />
+					})
+				}
+			</div>
+		
+			,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

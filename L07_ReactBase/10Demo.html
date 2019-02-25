@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+
+		/**
+		 * state：状态
+		 * 	组件内部状态的改变
+		 *
+		 *  当状态改变的时候，UI会重新进行渲染
+		 *
+		 * 	如此渲染，会不会拖慢浏览器的运行速度
+		 * 		DOM层渲染：React采用的是虚拟DOM（计算方式）
+		 * 		参考：github上去看React虚拟DOM部分的diff算法
+		 * 
+		 */
+		
+		var Hello = React.createClass({
+
+			// 管理状态，状态的初始化
+			getInitialState:function(){
+				return{
+					value:true
+				}
+			},
+
+			clickHandler:function(event){
+				this.setState({
+					value: !this.state.value 
+				})
+			},
+			
+			// 渲染
+			render:function(){
+				// 读取状态(state),必须通过this.state.value去读取
+				var values = this.state.value ? '孙悟空' : '六耳猕猴'
+				return(
+					<div>
+						<p>{ values }</p>
+						<button onClick={ this.clickHandler }>真的么</button>
+					</div>
+				)
+			}
+		})
+
+
+
+		ReactDOM.render(<Hello />,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>

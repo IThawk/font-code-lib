@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/sea.js"></script>
+</head>
+<body>
+	 <div id="root"></div>
+
+<script type="text/javascript">
+	
+	seajs.config({
+		base:"./js/",
+		alias:{
+			"hello":"hello",
+			"jquery":"jquery-3.2.1"
+		}
+	});
+	
+	seajs.use("index");
+
+
+
+</script>
+	
+</body>
+</html>

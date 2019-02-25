@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="dist/browser.min.js"></script>
+	<script src="dist/react.js"></script>
+	<script src="dist/react-dom.js"></script>
+	<script type="dist/jquery.js"></script>
+</head>
+<body>
+	<div id="root"></div>
+	<script type="text/babel">
+		
+		/**
+		 * React是组件化开发
+		 * 	 1.组件名称首字母必须大写
+		 * 	 2.只能存在一个根容器
+		 * 	 3.return中换行必须添加小括号
+		 */
+		var Hello = React.createClass({
+			// 渲染函数：决定组件展示的样子
+			render:function(){
+				return(
+					<div>
+						<ul>
+							<li>哈哈1</li>
+							<li>哈哈2</li>
+							<li>哈哈3</li>
+						</ul>
+					</div>
+				)
+			}
+		})
+
+		ReactDOM.render(<Hello />,document.getElementById("root"));
+
+	</script>
+
+</body>
+</html>
