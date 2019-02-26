@@ -1,8 +1,8 @@
-var fs = require("fs");
+import fs = require("fs");
 
 var writerStream = fs.createWriteStream("hello.txt");
 
-var data = "hello txt  my test begin";
+var data = "hello txt";
 writerStream.write(data, "utf-8");
 writerStream.end();
 
