@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "removeComments": false,
+    "sourceMap": false,
+    "target": "ES5",
+    "outDir": "./dist",
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+      "es2015.core"
+    ]
+
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/preact/**/*",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ],
+  "filesGlob": [
+    "typings/index.d.ts",
+    "src/**/*"
+  ]
+}
